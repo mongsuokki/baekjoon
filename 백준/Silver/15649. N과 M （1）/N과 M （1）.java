@@ -3,6 +3,7 @@ import java.util.*;
 public class Main {
 	public static int[] arr;
 	public static boolean[] visit;
+	static StringBuilder sb = new StringBuilder();
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -11,15 +12,16 @@ public class Main {
 		visit = new boolean[N];
 		arr = new int[M];
 		dfs(N, M, 0);
+		System.out.println(sb);
 	}
 
 	public static void dfs(int N, int M, int depth) {
 
 		if (depth == M) {
 			for (int val : arr) {
-				System.out.print(val + " ");
+				sb.append(val + " ");
 			}
-			System.out.println();
+			sb.append("\n");
 			return;
 		}
 
