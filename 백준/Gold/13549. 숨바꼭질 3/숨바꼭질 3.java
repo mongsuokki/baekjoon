@@ -10,7 +10,7 @@ public class Main {
         while (que.peek().now != K) {
             time temp = que.poll();
             int now = temp.now;
-            if (now <= K + 1 / 2 && (arr[2 * now] == 0 || arr[2 * now] > temp.ans)) {
+            if (now <= K + 1 / 2 && arr[2 * now] == 0) {
                 que.add(new time(2 * now, temp.ans));
                 arr[2 * now] = temp.ans;
             }
