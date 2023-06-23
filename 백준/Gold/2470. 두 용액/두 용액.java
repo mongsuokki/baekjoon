@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 
 class Main {
@@ -13,26 +11,14 @@ class Main {
 		Arrays.sort(arr);
 		while(start != end){
 			int A = arr[start], B = arr[end];
-			if(A+B<0){
-				if(Math.abs(A+B)<min){
-					minA = A;
-					minB = B;
-					min = Math.abs(A+B);
-				}
-				start++;
-			}
-			else if (A+B>0){
-				if(Math.abs(A+B)<min){
-					minA = A;
-					minB = B;
-					min = Math.abs(A+B);
-				}
-				end--;
-			}else{
+			if(Math.abs(A+B)<min){
 				minA = A;
 				minB = B;
-				break;
+				min = Math.abs(A+B);
 			}
+			if(A+B<0) start++;
+			else if (A+B>0) end--;
+			else break;
 		}
 		System.out.println(minA+" "+minB);
 	}
